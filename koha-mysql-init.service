@@ -1,0 +1,13 @@
+[Unit]
+Description=Koha SQL init
+After=mysql.service
+Requires=mysql.service
+PartOf=mysql.service
+
+[Service]
+ExecStartPre=/bin/sleep 10
+ExecStart=/etc/koha/koha-mysql-init.sh
+
+[Install]
+WantedBy=multi-user.target
+WantedBy=mysql.service
